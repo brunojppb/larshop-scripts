@@ -26,6 +26,7 @@
 
 .shadow-container .store-locator-container .store-locator-header {
   margin-top: 8px;
+  line-height: 1.2;
   color: #4A4A4A;
   max-width: 400px;
   text-align: center;
