@@ -49,7 +49,7 @@ window.addEventListener("DOMContentLoaded", function() {
     var renderStoreButton = function(name, url) {
       var a = document.createElement('a');
       a.className = 'store-locator-button';
-      a.href = url + '?' + DID_REDIRECT_STORE_URL_PARAM;
+      a.href = url + '?' + DID_REDIRECT_STORE_URL_PARAM + '=1';
       a.innerText = name;
       storeLocatorWrapper.appendChild(a);
     };
