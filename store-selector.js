@@ -23,12 +23,20 @@ window.addEventListener("DOMContentLoaded", function() {
     button.setAttribute('aria-hidden', true);
     button.setAttribute('aria-label', 'fechar');
     container.appendChild(button);
+    return button;
+  }
+
+  var bindCloseEvent = function(button, containerToRemove) {
+    button.addEventListener('click', function() {
+      containerToRemove.style.display = 'none';
+      document.body.style.overflow = 'scroll';
+    });
   }
 
   var renderStoreSelector = function(container, stores, nationalStore) {
     var storeLocatorWrapper = document.createElement('div');
     storeLocatorWrapper.className = 'store-locator-container';
-    renderHeader('h3', 'store-locator-header', 'Escolha uma cidade mais próxima de você:', storeLocatorWrapper);
+    renderHeader('h3', 'store-locator-header', 'Escolha uma loja mais próxima de você:', storeLocatorWrapper);
     var renderStoreButton = function(name, url) {
       var a = document.createElement('a');
       a.className = 'store-locator-button';
@@ -42,7 +50,8 @@ window.addEventListener("DOMContentLoaded", function() {
 
     renderHeader('h4', 'store-locator-subheader', 'Ou compre em nossa Loja Nacional.<br/> Entregamos em todo o Brasil.', storeLocatorWrapper);
     renderStoreButton(nationalStore.name, nationalStore.url);
-    renderCloseButton(storeLocatorWrapper);
+    var closeButton = renderCloseButton(storeLocatorWrapper);
+    bindCloseEvent(closeButton, container);
 
     container.appendChild(storeLocatorWrapper);
     return storeLocatorWrapper;
@@ -77,6 +86,8 @@ window.addEventListener("DOMContentLoaded", function() {
     console.log('primeira visita a loja.');
     var shadowContainer = renderShadowContainer();
     renderStoreSelector(shadowContainer, stores, nationalStore);
+    // Previne página de scrollar durante a exibição do container
+    document.body.style.overflow = 'hidden';
   }
 
 });
