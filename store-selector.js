@@ -36,10 +36,10 @@ window.addEventListener("DOMContentLoaded", function() {
     });
   }
 
-  var renderStoreSelector = function(container, stores, nationalStore) {
+  var renderStoreSelector = function(container, stores) {
     var storeLocatorWrapper = document.createElement('div');
     storeLocatorWrapper.className = 'store-locator-container';
-    renderHeader('h3', 'store-locator-header', 'Escolha uma loja mais próxima de você:', storeLocatorWrapper);
+    renderHeader('h3', 'store-locator-header', 'escolha a loja mais próxima de você:', storeLocatorWrapper);
     var renderStoreButton = function(name, url) {
       var a = document.createElement('a');
       a.className = 'store-locator-button';
@@ -51,8 +51,6 @@ window.addEventListener("DOMContentLoaded", function() {
       var button = renderStoreButton(stores[i].name, stores[i].url);
     }
 
-    renderHeader('h4', 'store-locator-subheader', 'Ou compre em nossa Loja Nacional.<br/> Entregamos em todo o Brasil.', storeLocatorWrapper);
-    renderStoreButton(nationalStore.name, nationalStore.url);
     var closeButton = renderCloseButton(storeLocatorWrapper);
     bindCloseEvent(closeButton, container);
 
@@ -66,13 +64,12 @@ window.addEventListener("DOMContentLoaded", function() {
     {
       name: 'Brasília - DF',
       url: 'https://larshopdf.commercesuite.com.br'
-    }
+    },
+    {
+      name: 'João Pessoa - PB',
+      url: 'https://www.larshoputilidades.com.br'
+    },
   ];
-
-  var nationalStore = {
-    name: 'Loja Nacional',
-    url: 'https://www.larshoputilidades.com.br'
-  };
 
   /** Renderize store locator apenas quando o usuário está entrando no site pela primeira vez */
   var queryString = window.location.search;
@@ -88,7 +85,7 @@ window.addEventListener("DOMContentLoaded", function() {
     // primeira visita de usuário na loja, pergunte qual loja ele deseja visitar.
     console.log('primeira visita a loja.');
     var shadowContainer = renderShadowContainer();
-    renderStoreSelector(shadowContainer, stores, nationalStore);
+    renderStoreSelector(shadowContainer, stores);
     // Previne página de scrollar durante a exibição do container
     document.body.style.overflow = 'hidden';
   }
