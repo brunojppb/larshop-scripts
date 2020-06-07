@@ -82,7 +82,6 @@ window.addEventListener("DOMContentLoaded", function() {
     for (var i = 0; i < stores.length; i++) {
       if (stores[i].hostname === location.hostname) {
         storeName = stores[i].name;
-        return;
       }
     }
     var node = document.createElement('div');
