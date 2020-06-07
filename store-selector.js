@@ -75,12 +75,15 @@ window.addEventListener("DOMContentLoaded", function() {
   var renderStoreLocationBanner = function(storeName) {
     var node = document.createElement('div');
     node.className = 'store-locator-banner';
+    var img = document.createElement('img');
+    img.src = 'https://cdn.jsdelivr.net/gh/brunojppb/larshop-scripts@master/location-pin.svg';
+    img.className = 'map-pin';
+    node.appendChild(img);
     var a = document.createElement('a');
     a.href = '#';
     a.className = 'link';
     a.innerText = storeName;
     node.appendChild(a);
-    var img = document.createElement('img');
     var header = document.getElementsByTagName('header')[0];
     header.insertAdjacentElement('beforebegin', node);
   };
