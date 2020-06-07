@@ -27,7 +27,8 @@ window.addEventListener("DOMContentLoaded", function() {
   }
 
   var bindCloseEvent = function(button, containerToRemove) {
-    button.addEventListener('click', function() {
+    button.addEventListener('click', function(event) {
+      event.preventDefault();
       containerToRemove.style.display = 'none';
       document.body.style.overflow = 'scroll';
       // Se o usuário fechar a janela, não pergunte mais qual
@@ -39,7 +40,8 @@ window.addEventListener("DOMContentLoaded", function() {
   var renderStoreSelector = function(container, stores) {
     var storeLocatorWrapper = document.createElement('div');
     storeLocatorWrapper.className = 'store-locator-container';
-    renderHeader('h3', 'store-locator-header', 'escolha a loja mais próxima de você:', storeLocatorWrapper);
+    renderHeader('h3', 'store-locator-header', 'Por favor, escolha a loja mais próxima de você:', storeLocatorWrapper);
+    renderHeader('h5', 'store-locator-subheader', 'Venda online para todo o brasil!', storeLocatorWrapper);
     var renderStoreButton = function(name, url) {
       var a = document.createElement('a');
       a.className = 'store-locator-button';
@@ -47,9 +49,20 @@ window.addEventListener("DOMContentLoaded", function() {
       a.innerText = name;
       storeLocatorWrapper.appendChild(a);
     };
+    
+    // Renderiza botoes de lojas
     for(var i = 0; i < stores.length; i++) {
       var button = renderStoreButton(stores[i].name, stores[i].url);
     }
+
+    renderHeader('h5', 'store-locator-subheader', 'ou', storeLocatorWrapper);
+
+    var noSelectionButton = document.createElement('a');
+    noSelectionButton.className = 'store-locator-no-selection';
+    noSelectionButton.innerText = 'Continuar sem escolher uma cidade';
+    noSelectionButton.href = '#';
+    bindCloseEvent(noSelectionButton, container);
+    storeLocatorWrapper.appendChild(noSelectionButton);
 
     var closeButton = renderCloseButton(storeLocatorWrapper);
     bindCloseEvent(closeButton, container);
