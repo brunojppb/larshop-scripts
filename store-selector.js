@@ -30,6 +30,9 @@ window.addEventListener("DOMContentLoaded", function() {
     button.addEventListener('click', function() {
       containerToRemove.style.display = 'none';
       document.body.style.overflow = 'scroll';
+      // Se o usuário fechar a janela, não pergunte mais qual
+      // loja selecionar. Deixo selecionar pelo botão de escolher loja
+      localStorage.setItem(DID_SELECT_STORE_LOCALSTORAGE_KEY, 'true');
     });
   }
 
