@@ -1,5 +1,5 @@
 .shadow-container {
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
@@ -130,6 +130,7 @@
   color: white;
   font-size: 14px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  text-decoration: underline;
 }
 
 .store-locator-banner .map-pin {
