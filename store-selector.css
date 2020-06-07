@@ -133,5 +133,6 @@
 }
 
 .store-locator-banner .map-pin {
+  width: 20px;
   margin-right: 8px;
 }

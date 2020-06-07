@@ -38,6 +38,9 @@ window.addEventListener("DOMContentLoaded", function() {
     });
   }
 
+  /**
+   * Renderiza o seletor de lojas
+   * e considera as lojas suportadas no momento */
   var renderStoreSelector = function(container, stores) {
     var storeLocatorWrapper = document.createElement('div');
     storeLocatorWrapper.className = 'store-locator-container';
@@ -72,7 +75,16 @@ window.addEventListener("DOMContentLoaded", function() {
     return storeLocatorWrapper;
   };
 
-  var renderStoreLocationBanner = function(storeName) {
+  /** Exibe loja atual em banner no topo 
+   * Permite o usuário escolher qual loja deseja utilizar */
+  var renderStoreLocationBanner = function(stores) {
+    var storeName = 'mudar loja';
+    for (var i = 0; i < stores.length; i++) {
+      if (stores[i].hostname === location.hostname) {
+        storeName = stores[i].name;
+        return;
+      }
+    }
     var node = document.createElement('div');
     node.className = 'store-locator-banner';
     var img = document.createElement('img');
@@ -84,6 +96,10 @@ window.addEventListener("DOMContentLoaded", function() {
     a.className = 'link';
     a.innerText = storeName;
     node.appendChild(a);
+    a.addEventListener('click', function(event) {
+      event.preventDefault();
+      showStoreSelector();
+    });
     var header = document.getElementsByTagName('header')[0];
     header.insertAdjacentElement('beforebegin', node);
   };
@@ -93,7 +109,7 @@ window.addEventListener("DOMContentLoaded", function() {
     document.body.style.overflow = 'hidden';
     var existingSelector = document.getElementById('shadow-container');
     if (existingSelector) {
-      existingSelector.style.display = 'block';
+      existingSelector.style.display = 'flex';
     } else {
       var shadowContainer = renderShadowContainer();
       renderStoreSelector(shadowContainer, stores);
@@ -105,11 +121,13 @@ window.addEventListener("DOMContentLoaded", function() {
   var stores = [
     {
       name: 'Brasília - DF',
-      url: 'https://larshopdf.commercesuite.com.br'
+      url: 'https://larshopdf.commercesuite.com.br',
+      hostname: 'larshopdf.commercesuite.com.br',
     },
     {
       name: 'João Pessoa - PB',
-      url: 'https://www.larshoputilidades.com.br'
+      url: 'https://www.larshoputilidades.com.br',
+      hostname: 'www.larshoputilidades.com.br',
     },
   ];
 
@@ -129,6 +147,7 @@ window.addEventListener("DOMContentLoaded", function() {
     showStoreSelector();
   }
 
-  renderStoreLocationBanner('Joao pessoa - PB');
+  // Mostre a loja atual do usuário. e permite a mudança de loja
+  renderStoreLocationBanner(stores);
 
 });
