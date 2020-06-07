@@ -40,7 +40,7 @@ window.addEventListener("DOMContentLoaded", function() {
       var button = renderStoreButton(stores[i].name, stores[i].url);
     }
 
-    renderHeader('h4', 'store-locator-subheader', 'Ou compre em nossa Loja Nacional. Entregamos em todo o Brasil.', storeLocatorWrapper);
+    renderHeader('h4', 'store-locator-subheader', 'Ou compre em nossa Loja Nacional.<br/> Entregamos em todo o Brasil.', storeLocatorWrapper);
     renderStoreButton(nationalStore.name, nationalStore.url);
     renderCloseButton(storeLocatorWrapper);
 
