@@ -6,6 +6,7 @@ window.addEventListener("DOMContentLoaded", function() {
   var renderShadowContainer = function() {
     var wrapper = document.createElement('div');
     wrapper.className = 'shadow-container';
+    wrapper.id = 'shadow-container';
     document.body.appendChild(wrapper);
     return wrapper;
   };
@@ -71,6 +72,31 @@ window.addEventListener("DOMContentLoaded", function() {
     return storeLocatorWrapper;
   };
 
+  var renderStoreLocationBanner = function(storeName) {
+    var node = document.createElement('div');
+    node.className = 'store-locator-banner';
+    var a = document.createElement('a');
+    a.href = '#';
+    a.className = 'link';
+    a.innerText = storeName;
+    node.appendChild(a);
+    var img = document.createElement('img');
+    var header = document.getElementsByTagName('header')[0];
+    header.insertAdjacentElement('beforebegin', node);
+  };
+
+  var showStoreSelector = function() {
+    // Previne página de scrollar durante a exibição do container
+    document.body.style.overflow = 'hidden';
+    var existingSelector = document.getElementById('shadow-container');
+    if (existingSelector) {
+      existingSelector.style.display = 'block';
+    } else {
+      var shadowContainer = renderShadowContainer();
+      renderStoreSelector(shadowContainer, stores);
+    }
+  };
+
 
   /** main */
   var stores = [
@@ -97,10 +123,9 @@ window.addEventListener("DOMContentLoaded", function() {
   } else {
     // primeira visita de usuário na loja, pergunte qual loja ele deseja visitar.
     console.log('primeira visita a loja.');
-    var shadowContainer = renderShadowContainer();
-    renderStoreSelector(shadowContainer, stores);
-    // Previne página de scrollar durante a exibição do container
-    document.body.style.overflow = 'hidden';
+    showStoreSelector();
   }
+
+  renderStoreLocationBanner('Joao pessoa - PB');
 
 });

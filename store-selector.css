@@ -116,3 +116,18 @@
 .shadow-container .close-button:after {
   transform: rotate(-45deg);
 }
+
+.store-locator-banner {
+  width: 100%;
+  background-color: #007fc6;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.store-locator-banner .link {
+  color: white;
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
