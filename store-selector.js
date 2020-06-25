@@ -128,6 +128,16 @@ window.addEventListener("DOMContentLoaded", function() {
       url: 'https://www.larshoputilidades.com.br',
       hostname: 'www.larshoputilidades.com.br',
     },
+    {
+      name: 'Campina Grande - PB',
+      url: 'https://larshopcg.commercesuite.com.br/',
+      hostname: 'larshopcg.commercesuite.com.br',
+    },
+    {
+      name: 'Belém - PA',
+      url: 'https://larshopbelem.commercesuite.com.br/',
+      hostname: 'larshopbelem.commercesuite.com.br',
+    },
   ];
 
   /** Renderize store locator apenas quando o usuário está entrando no site pela primeira vez */
