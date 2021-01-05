@@ -129,6 +129,11 @@ window.addEventListener("DOMContentLoaded", function() {
       hostname: 'www.larshoputilidades.com.br',
     },
     {
+      name: 'Sata Rita - PB',
+      url: 'https://larshopsantarita.commercesuite.com.br/',
+      hostname: 'larshopsantarita.commercesuite.com.br',
+    },
+    {
       name: 'Campina Grande - PB',
       url: 'https://larshopcg.commercesuite.com.br/',
       hostname: 'larshopcg.commercesuite.com.br',
