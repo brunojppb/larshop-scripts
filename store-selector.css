@@ -137,3 +137,20 @@
   width: 20px;
   margin-right: 8px;
 }
+
+/** Mobile layouts */
+@media screen and (max-width: 640px) {
+  
+  .shadow-container .store-locator-container .store-locator-subheader {
+    font-size: 16px;
+  }
+  
+  .shadow-container .store-locator-container .store-locator-subheader {
+    margin-top: 12px;
+    font-size: 12px;
+  }
+  
+  .shadow-container .store-locator-container .store-locator-button {
+    padding: 1em 1.4em;
+  }
+}
