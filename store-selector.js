@@ -129,7 +129,7 @@ window.addEventListener("DOMContentLoaded", function() {
       hostname: 'www.larshoputilidades.com.br',
     },
     {
-      name: 'Sata Rita - PB',
+      name: 'Santa Rita - PB',
       url: 'https://larshopsantarita.commercesuite.com.br/',
       hostname: 'larshopsantarita.commercesuite.com.br',
     },
