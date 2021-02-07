@@ -38,6 +38,51 @@ window.addEventListener("DOMContentLoaded", function() {
     });
   }
 
+  var renderStoreButton = function(container, name, url) {
+    var a = document.createElement('a');
+    a.className = 'store-locator-button';
+    a.href = url + '?' + DID_REDIRECT_STORE_URL_PARAM + '=1';
+    a.innerText = name;
+    container.appendChild(a);
+  };
+
+  var renderLocationButton = function (container, name, totalStores) {
+    var a = document.createElement('a');
+    a.className = 'store-locator-button multi-store';
+    a.href = '#'
+    a.innerHTML = '<span>' + name + '</span>' + '<span>' + totalStores + ' lojas' + '</span>';
+    container.appendChild(a);
+    a.addEventListener('click', function(e) {
+      e.preventDefault()
+      renderSecondLevel(name)
+    })
+  }
+
+  var renderSecondLevel = function(topLevelName) {
+    var store = getTopLevelStoresByName(topLevelName);
+    if (store) {
+      const buttonsContainer = document.querySelector('.buttons-container.root');
+      buttonsContainer.style.display = 'none';
+      const secondLevelContainer = document.createElement('div');
+      secondLevelContainer.className = 'buttons-container second-level';
+      for (var i = 0; i < store.stores.length; i++) {
+        const s = store.stores[i];
+        renderStoreButton(secondLevelContainer, s.name, s.url)
+      }
+      const backButton = document.createElement('a');
+      backButton.href = '#';
+      backButton.classList = 'back-button'
+      backButton.innerText = 'voltar';
+      secondLevelContainer.appendChild(backButton)
+      buttonsContainer.insertAdjacentElement('beforebegin', secondLevelContainer);
+      backButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        buttonsContainer.style.display = 'flex';
+        secondLevelContainer.parentElement.removeChild(secondLevelContainer);
+      })
+    }
+  }
+
   /**
    * Renderiza o seletor de lojas
    * e considera as lojas suportadas no momento */
@@ -46,17 +91,23 @@ window.addEventListener("DOMContentLoaded", function() {
     storeLocatorWrapper.className = 'store-locator-container';
     renderHeader('h3', 'store-locator-header', 'Por favor, escolha a loja mais próxima de você:', storeLocatorWrapper);
     renderHeader('h5', 'store-locator-subheader', 'Venda online para todo o brasil!', storeLocatorWrapper);
-    var renderStoreButton = function(name, url) {
-      var a = document.createElement('a');
-      a.className = 'store-locator-button';
-      a.href = url + '?' + DID_REDIRECT_STORE_URL_PARAM + '=1';
-      a.innerText = name;
-      storeLocatorWrapper.appendChild(a);
-    };
+
+    const buttonsContainer = document.createElement('div');
+    buttonsContainer.className = 'buttons-container root';
+
+    storeLocatorWrapper.appendChild(buttonsContainer);
     
     // Renderiza botoes de lojas
     for(var i = 0; i < stores.length; i++) {
-      var button = renderStoreButton(stores[i].name, stores[i].url);
+      var store = stores[i]
+      // Essa cidade possui mais de uma loja
+      // precisamos renderizar um segundo nível de botões
+      // quando clicado
+      if (store.stores) {
+        renderLocationButton(buttonsContainer, store.name, store.stores.length)
+      } else {
+        renderStoreButton(buttonsContainer, stores[i].name, stores[i].url);
+      }
     }
 
     renderHeader('h5', 'store-locator-subheader', 'ou', storeLocatorWrapper);
@@ -125,8 +176,18 @@ window.addEventListener("DOMContentLoaded", function() {
     },
     {
       name: 'João Pessoa - PB',
-      url: 'https://www.larshoputilidades.com.br',
-      hostname: 'www.larshoputilidades.com.br',
+      stores: [
+        {
+          name: 'Tambiá Shopping',
+          url: 'https://www.larshoputilidades.com.br',
+          hostname: 'www.larshoputilidades.com.br',
+        },
+        {
+          name: 'Liv Mall ',
+          url: 'https://www.larshoputilidades.com.br',
+          hostname: 'www.larshoputilidades.com.br',
+        }
+      ]
     },
     {
       name: 'Santa Rita - PB',
@@ -144,6 +205,16 @@ window.addEventListener("DOMContentLoaded", function() {
       hostname: 'larshopbelem.commercesuite.com.br',
     },
   ];
+
+  /** Retorna o primeiro nível de lojas pelo nome. 
+   * Undefined case nao encontre */
+  var getTopLevelStoresByName = function(name) {
+    for (var i=0; i < stores.length; i++) {
+      if (stores[i].name === name) {
+        return stores[i];
+      }
+    }
+  }
 
   /** Renderize store locator apenas quando o usuário está entrando no site pela primeira vez */
   var queryString = window.location.search;
