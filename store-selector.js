@@ -195,7 +195,7 @@ window.addEventListener("DOMContentLoaded", function() {
         {
           name: 'Liv Mall ',
           url: 'https://larshoplivmall.commercesuite.com.br/',
-          hostname: 'www.larshoputilidades.com.br',
+          hostname: 'larshoplivmall.commercesuite.com.br',
         }
       ]
     },
