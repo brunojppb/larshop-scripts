@@ -133,6 +133,16 @@ window.addEventListener("DOMContentLoaded", function() {
     for (var i = 0; i < stores.length; i++) {
       if (stores[i].hostname === location.hostname) {
         storeName = stores[i].name;
+      } else if (stores[i].stores) {
+        // indo um pouco longe d+ aqui
+        // preciso refatorar e usar uma funcao recursiva
+        // caso venhamos a ter mais um terceiro nível
+        // por agora esse código fedorento resolve
+        for (var j = 0; j < stores[i].stores.length; j++) {
+          if (stores[i].stores[j].hostname === location.hostname) {
+            storeName = stores[i].stores[j].name;
+          }
+        }
       }
     }
     var node = document.createElement('div');
