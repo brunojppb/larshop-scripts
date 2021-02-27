@@ -193,6 +193,11 @@ window.addEventListener("DOMContentLoaded", function() {
           hostname: 'www.larshoputilidades.com.br',
         },
         {
+          name: 'Mangabeira Shopping',
+          url: 'https://larshopmangabeira.commercesuite.com.br',
+          hostname: 'larshopmangabeira.commercesuite.com.br', 
+        },
+        {
           name: 'Liv Mall ',
           url: 'https://larshoplivmall.commercesuite.com.br/',
           hostname: 'larshoplivmall.commercesuite.com.br',
