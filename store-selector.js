@@ -199,9 +199,14 @@ window.addEventListener("DOMContentLoaded", function() {
         },
         {
           name: 'Liv Mall ',
-          url: 'https://larshoplivmall.commercesuite.com.br/',
+          url: 'https://larshoplivmall.commercesuite.com.br',
           hostname: 'larshoplivmall.commercesuite.com.br',
-        }
+        },
+        {
+          name: 'Pátio Altiplano',
+          url: 'https://larshopaltiplano.commercesuite.com.br',
+          hostname: 'larshopaltiplano.commercesuite.com.br'
+        },
       ]
     },
     {
