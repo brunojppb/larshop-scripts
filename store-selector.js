@@ -189,13 +189,13 @@ window.addEventListener("DOMContentLoaded", function() {
       stores: [
         {
           name: 'Tambiá Shopping',
-          url: 'https://www.larshoputilidades.com.br',
-          hostname: 'www.larshoputilidades.com.br',
+          url: 'https://larshoputilidades.commercesuite.com.br',
+          hostname: 'larshoputilidades.commercesuite.com.br',
         },
         {
           name: 'Mangabeira Shopping',
-          url: 'https://larshopmangabeira.commercesuite.com.br',
-          hostname: 'larshopmangabeira.commercesuite.com.br', 
+          url: 'https://www.larshoputilidades.com.br',
+          hostname: 'larshoputilidades.com.br',
         },
         {
           name: 'Liv Mall ',
