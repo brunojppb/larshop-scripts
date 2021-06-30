@@ -209,16 +209,16 @@ window.addEventListener("DOMContentLoaded", function() {
         },
       ]
     },
-    {
-      name: 'Santa Rita - PB',
-      url: 'https://larshopsantarita.commercesuite.com.br/',
-      hostname: 'larshopsantarita.commercesuite.com.br',
-    },
-    {
-      name: 'Campina Grande - PB',
-      url: 'https://larshopcg.commercesuite.com.br/',
-      hostname: 'larshopcg.commercesuite.com.br',
-    },
+//     {
+//       name: 'Santa Rita - PB',
+//       url: 'https://larshopsantarita.commercesuite.com.br/',
+//       hostname: 'larshopsantarita.commercesuite.com.br',
+//     },
+//     {
+//       name: 'Campina Grande - PB',
+//       url: 'https://larshopcg.commercesuite.com.br/',
+//       hostname: 'larshopcg.commercesuite.com.br',
+//     },
     {
       name: 'Belém - PA',
       url: 'https://larshopbelem.commercesuite.com.br/',
