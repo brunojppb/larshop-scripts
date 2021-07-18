@@ -179,11 +179,11 @@ window.addEventListener("DOMContentLoaded", function() {
 
   /** main */
   var stores = [
-    {
-      name: 'Brasília - DF',
-      url: 'https://larshopdf.commercesuite.com.br',
-      hostname: 'larshopdf.commercesuite.com.br',
-    },
+    // {
+    //   name: 'Brasília - DF',
+    //   url: 'https://larshopdf.commercesuite.com.br',
+    //   hostname: 'larshopdf.commercesuite.com.br',
+    // },
     {
       name: 'João Pessoa - PB',
       stores: [
