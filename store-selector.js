@@ -198,7 +198,7 @@ window.addEventListener("DOMContentLoaded", function() {
           hostname: 'larshoputilidades.com.br',
         },
         {
-          name: 'Liv Mall ',
+          name: 'Manaíra - Av. João Cancio',
           url: 'https://larshoplivmall.commercesuite.com.br',
           hostname: 'larshoplivmall.commercesuite.com.br',
         },
