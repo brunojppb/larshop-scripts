@@ -187,11 +187,11 @@ window.addEventListener("DOMContentLoaded", function() {
     {
       name: 'João Pessoa - PB',
       stores: [
-        {
-          name: 'Tambiá Shopping',
-          url: 'https://larshoputilidades.commercesuite.com.br',
-          hostname: 'larshoputilidades.commercesuite.com.br',
-        },
+        // {
+        //   name: 'Tambiá Shopping',
+        //   url: 'https://larshoputilidades.commercesuite.com.br',
+        //   hostname: 'larshoputilidades.commercesuite.com.br',
+        // },
         {
           name: 'Mangabeira Shopping',
           url: 'https://www.larshoputilidades.com.br',
