@@ -197,11 +197,11 @@ window.addEventListener("DOMContentLoaded", function() {
           url: 'https://www.larshoputilidades.com.br',
           hostname: 'larshoputilidades.com.br',
         },
-        {
-          name: 'Manaíra - Av. João Cancio',
-          url: 'https://larshoplivmall.commercesuite.com.br',
-          hostname: 'larshoplivmall.commercesuite.com.br',
-        },
+        //{
+        //  name: 'Manaíra - Av. João Cancio',
+        //  url: 'https://larshoplivmall.commercesuite.com.br',
+        // hostname: 'larshoplivmall.commercesuite.com.br',
+        //},
         {
           name: 'Pátio Altiplano',
           url: 'https://larshopaltiplano.commercesuite.com.br',
