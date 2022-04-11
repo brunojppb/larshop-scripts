@@ -237,22 +237,22 @@ window.addEventListener("DOMContentLoaded", function() {
   }
 
   /** Renderize store locator apenas quando o usuário está entrando no site pela primeira vez */
-  var queryString = window.location.search;
+  // var queryString = window.location.search;
   // usuário veio de uma das lojas após escolher uma das opcões.
   // salve localmante e não pergunte mais a esse usuário qual loja escolher
-  if (queryString.indexOf(DID_REDIRECT_STORE_URL_PARAM) !== -1) { 
-    console.log('loja escolhida através de redirecionamento.');
-    localStorage.setItem(DID_SELECT_STORE_LOCALSTORAGE_KEY, 'true');
+  //if (queryString.indexOf(DID_REDIRECT_STORE_URL_PARAM) !== -1) { 
+  //  console.log('loja escolhida através de redirecionamento.');
+  //  localStorage.setItem(DID_SELECT_STORE_LOCALSTORAGE_KEY, 'true');
     // usuário já selecionou uma loja
-  } else if(localStorage.getItem(DID_SELECT_STORE_LOCALSTORAGE_KEY)) {
-    console.log('Loja já visitada.');
-  } else {
+  //} else if(localStorage.getItem(DID_SELECT_STORE_LOCALSTORAGE_KEY)) {
+  //  console.log('Loja já visitada.');
+  //} else {
     // primeira visita de usuário na loja, pergunte qual loja ele deseja visitar.
-    console.log('primeira visita a loja.');
-    showStoreSelector();
-  }
+  //  console.log('primeira visita a loja.');
+  //  showStoreSelector();
+  //}
 
   // Mostre a loja atual do usuário. e permite a mudança de loja
-  renderStoreLocationBanner(stores);
+  // renderStoreLocationBanner(stores);
 
 });
